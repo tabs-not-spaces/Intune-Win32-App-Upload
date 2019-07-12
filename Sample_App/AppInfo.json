@@ -1,0 +1,80 @@
+{
+    "ApplicationInfo": {
+        "Name": "Sample Application",
+        "Description": "Sample Application",
+        "Publisher": "Contoso",
+        "Developer": "Contoso",
+        "ApplicationIconPath": ""
+    },
+    "ProgramInfo": {
+        "SetupFilePath": "Sample_App_Install.ps1",
+        "InstallCommandLine": "Powershell.exe -executionPolicy bypass -file \".\/Sample_App_Install.ps1\"",
+        "UninstallCommandLine": "cmd.exe",
+        "RunAsContext": "system"
+    },
+    "RequirementInfo": {
+        "OSArchitecture": "x64",
+        "MinimumOS": {
+            "v10_1607": false,
+            "v10_1703": false,
+            "v10_1709": false,
+            "v10_1803": true
+        }
+    },
+    "DetectionInfo": {
+        "ChosenDetectionType": "#microsoft.graph.win32LobAppFileSystemDetection",
+        "DetectionTypes": [{
+                "@odata.type": "#microsoft.graph.win32LobAppFileSystemDetection",
+                "path": "c:\\programdata\\contoso",
+                "fileOrFolderName": "sampleapp.log",
+                "check32BitOn64System": false,
+                "detectionType": "exists",
+                "operator": "notConfigured",
+                "detectionValue": ""
+            },
+            {
+                "@odata.type": "#microsoft.graph.win32LobAppPowerShellScriptDetection",
+                "enforceSignatureCheck": true,
+                "runAs32Bit": false,
+                "scriptContent": ""
+            },
+            {
+                "@odata.type": "#microsoft.graph.win32LobAppRegistryDetection",
+                "check32BitOn64System": true,
+                "keyPath": "",
+                "valueName": "",
+                "detectionType": "",
+                "operator": "",
+                "detectionValue": ""
+            },
+            {
+                "@odata.type": "#microsoft.graph.win32LobAppProductCodeDetection",
+                "productCode": "",
+                "productVersionOperator": "notConfigured",
+                "productVersion": null
+            }
+        ]
+    },
+    "ReturnCodes": [{
+            "returnCode": 0,
+            "type": "success"
+        },
+        {
+            "returnCode": 1707,
+            "type": "success"
+        },
+        {
+            "returnCode": 3010,
+            "type": "softReboot"
+        },
+        {
+            "returnCode": 1641,
+            "type": "hardReboot"
+        },
+        {
+            "returnCode": 1618,
+            "type": "retry"
+        }
+    ]
+
+}
